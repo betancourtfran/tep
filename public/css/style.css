@@ -1,0 +1,174 @@
+@font-face {
+    font-family: 'greyscalebasicregular';
+    src: url('../fonts/Greyscale_Basic_Regular-webfont.eot');
+    src: url('../fonts/Greyscale_Basic_Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Greyscale_Basic_Regular-webfont.woff') format('woff'),
+         url('../fonts/Greyscale_Basic_Regular-webfont.ttf') format('truetype'),
+         url('../fonts/Greyscale_Basic_Regular-webfont.svg#greyscalebasicregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+/*
+******************************************************************************
+* =etiquetas
+******************************************************************************
+*/
+body {
+	/*background: url(../images/libros.jpg) bottom fixed;*/
+	background-color: #f7f7f7;
+	
+	font-family: 'greyscalebasicregular';
+}
+h1 {
+	text-align: center;
+}
+ul {
+	padding-left: 20px;
+}
+li, ul {
+	list-style-type: none;
+}
+button.enfasis {
+	-webkit-transition: padding-left .3s;
+	        transition: padding-left .3s;
+	        margin: 10px 0px;
+	        box-shadow: 0 0 .5px rgba(0,0,0, .5);
+}
+button.enfasis:hover{
+	padding-left: 25px;
+	cursor: pointer;
+}
+button a {
+	color: white;
+}
+button a:hover {
+	text-decoration: none;
+}
+li h3 {
+	display: inline;
+}
+form label{
+	display: block;
+}
+textarea{
+	font-family: arial;
+}
+input[type=radio]{
+	display: inline;
+}
+input {
+	width: 303px;
+}
+form div {
+	margin: 8px 0px;	
+}
+form p {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+/*
+******************************************************************************
+* =id's
+******************************************************************************
+*/
+#ayuda {
+	float: right;
+	margin-right: .5em;
+}
+#wrapper {
+	width: 960px;
+	margin: auto;
+	padding: 5px;
+}
+#content, #sidebar, #nav {
+	background-color: white;
+	border: 1px solid rgba(0,0,0, .2);
+	border-radius: 4px;
+	box-shadow: 0px 0px 13px rgba(0,0,0, .10);
+}
+#nav {
+	margin-bottom: 7px;
+}
+#content {
+	padding-left: 1em;
+	padding-right: 1em;
+	width: 100%;
+	min-height: 400px;
+	float: right;
+}
+#cke_contenido {
+	width: 80%;
+	display: inline-block;
+}
+#ingreso {
+	width: 40%;
+	margin: auto 60%;
+	position: relative;
+}
+
+#ingreso form {
+	margin: auto;
+	width: 85%;
+}
+#content #ingreso p {
+	font-size: 1.4em;
+	padding-top: 5px;
+	text-align: center;
+}
+#sidebar {
+	border-right: 1px solid #c4c4c4; 
+	width: 20%;
+	min-height: 400px;
+	float: left;
+}
+#sidebar hr {
+	border-top: 1px solid #c4c4c4;
+}
+#sidebar ul{
+	padding-left: 5px;
+}
+#logout {
+	float: right;
+}
+#log {
+	background-color: #f7f7f7;
+	margin: 10px auto;
+	border: 1px solid #e3e3e3;
+	text-align: justify;
+}
+#main_image {
+	background: url(../images/libros.jpg) center;
+	border: 1px solid #a3a3a3;
+	border-radius: 4px;
+	box-shadow: 0px 0px 13px rgba(0,0,0, .10);
+	width: 565px;
+	height: 500px;
+	float: left;
+	margin: 10px auto;
+}
+#tabs {
+	text-align: justify;
+}
+/*
+******************************************************************************
+* =clases
+******************************************************************************
+*/
+.btn-lg {
+	padding-right: 5px;
+	padding-left: 2px;
+}
+.enfasis{
+	-webkit-transition: padding-left .3s, border-left .8s;
+	        transition: padding-left .3s, border-left .8s;
+}
+.enfasis:hover {
+	border-left: 5px solid #5bc0de;
+	padding-left: 5px;
+	cursor: pointer;
+}
+.half-width {
+	max-width: 79.5%;
+}
