@@ -23,19 +23,7 @@ class SubjectsController extends \BaseController {
 	}
 	
 	/**
-	 * Display a listing of subjects
-	 *
-	 * @return Response
-	 */
-	// public function index($admin)
-	// {
-	// 	$subjects = Subject::all();
-
-	// 	return View::make('admins.index', compact('subjects'));
-	// }
-
-	/**
-	 * Show the form for creating a new subject
+	 * Muestra el formulario para crear un nuevo objetivo
 	 *
 	 * @return Response
 	 */
@@ -50,7 +38,7 @@ class SubjectsController extends \BaseController {
 	}
 
 	/**
-	 * Store a newly created subject in storage.
+	 * Guarda un nuevo objetivo en la base de datos
 	 *
 	 * @return Response
 	 */
@@ -71,7 +59,7 @@ class SubjectsController extends \BaseController {
 	}
 
 	/**
-	 * Display the specified subject.
+	 * Muestra el objetivo especificado
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -85,7 +73,7 @@ class SubjectsController extends \BaseController {
 	}
 
 	/**
-	 * Show the form for editing the specified subject.
+	 * Muestra el formulario para editar el objetivo especificado
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -97,7 +85,7 @@ class SubjectsController extends \BaseController {
 	}
 
 	/**
-	 * Update the specified subject in storage.
+	 * Actualiza el objetivo especificado en la base de datos
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -123,7 +111,7 @@ class SubjectsController extends \BaseController {
 	}
 
 	/**
-	 * Remove the specified subject from storage.
+	 * Elimina el objetivo especificado de la base de datos
 	 *
 	 * @param  int  $id
 	 * @return Response

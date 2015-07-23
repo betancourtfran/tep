@@ -3,10 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Tutorial Educativo</title>
+	{{-- incluye todos los estilos y scripts --}}
 	{{HTML::style('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')}}
 	{{HTML::style('css/style.css')}}
 	{{HTML::style('jquery/jquery-ui.min.css')}}
 	{{HTML::script('ckeditor/ckeditor.js')}}
+	{{HTML::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')}}
 	{{HTML::script('https://www.google.com/recaptcha/api.js')}}
 	{{HTML::script('jquery/jquery-2.1.4.min.js')}}
 	{{HTML::script('jquery/jquery-ui.min.js')}}
@@ -15,7 +17,7 @@
 	<div id="wrapper">
 		<nav id="nav" class="navbar navbar-default">
 			<div class="container-fluid">
-			@if (Auth::admin()->check())
+			@if (Auth::admin()->check()) {{-- Si el usuario es administrador --}}
 				<h1>Bienvenido {{ $admin = Auth::admin()->get()->name }}, al TEP</h1>
 				<div id="logout">
 					<button type="button" class="btn btn-danger">{{HTML::linkRoute('user.logout', 'Cerrar sesión')}}</button>
@@ -23,7 +25,7 @@
 				<div id="ayuda">
 					<button type="button" class="btn btn-primary">{{HTML::linkRoute('admin.help', 'Ayuda', [$admin])}}</button>
 				</div>
-			@elseif (Auth::user()->check())
+			@elseif (Auth::user()->check()) {{-- Si el usuario es estudiante --}}
 			<h1>Bienvenido {{ $user = Auth::user()->get()->name }}, al TEP</h1>
 				<div id="logout">
 					<button type="button" class="btn btn-danger">{{HTML::linkRoute('user.logout', 'Cerrar sesión')}}</button>
@@ -31,14 +33,14 @@
 				<div id="ayuda">
 					<button type="button" class="btn btn-primary">{{HTML::linkRoute('admin.help', 'Ayuda', [$user])}}</button>
 				</div>
-			@else
+			@else {{-- De no haber ingresado al sistema --}}
 				<h1>Bienvenidos al TEP</h1>			
 			@endif
 			</div>
 		</nav>
-		@if (Auth::admin()->check() || Auth::user()->check())
+		@if (Auth::admin()->check() || Auth::user()->check()) {{-- Si el administrador o usuarios son autenticados --}}
 			<aside id="sidebar">
-				@if (Auth::admin()->check() || Auth::user()->check())
+				{{-- @if (Auth::admin()->check() || Auth::user()->check()) --}}
 					@if ($units->count())
 						<ul>
 							@foreach ($units as $unit)
@@ -80,7 +82,7 @@
 							</button>
 						</ul>
 					@endif
-				@endif
+				{{-- @endif --}}
 			</aside>
 		@endif
 		<div id="content" {{Auth::admin()->check() || Auth::user()->check() ? 'class = half-width' : '' }}>
@@ -93,5 +95,8 @@
 			@yield('content')
 		</div>
 	</div>
+	<script>
+		$('div.alert').delay(5000).slideUp(300);
+	</script>
 </body>
 </html>

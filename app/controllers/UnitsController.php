@@ -24,17 +24,7 @@ class UnitsController extends \BaseController {
 	}
 
 	/**
-	 * Display a listing of units
-	 *
-	 * @return Response
-	 */
-	public function index($admin)
-	{
-		return View::make('admins.index', compact('admin', 'msj'));
-	}
-
-	/**
-	 * Show the form for creating a new unit
+	 * Muestra el formulario para crear una nueva unidad
 	 *
 	 * @return Response
 	 */
@@ -44,7 +34,7 @@ class UnitsController extends \BaseController {
 	}
 
 	/**
-	 * Store a newly created unit in storage.
+	 * Guarda una nueva unidad en la base de datos
 	 *
 	 * @return Response
 	 */
@@ -68,7 +58,7 @@ class UnitsController extends \BaseController {
 	}
 
 	/**
-	 * Display the specified unit.
+	 * Muestra la unidad especificada
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -82,7 +72,7 @@ class UnitsController extends \BaseController {
 	}
 
 	/**
-	 * Show the form for editing the specified unit.
+	 * Muestra un formulario para editar la unidad especificada
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -95,7 +85,7 @@ class UnitsController extends \BaseController {
 	}
 
 	/**
-	 * Update the specified unit in storage.
+	 * Actualiza la unidad especificada en la base de datos
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -122,7 +112,7 @@ class UnitsController extends \BaseController {
 	}
 
 	/**
-	 * Remove the specified unit from storage.
+	 * Elimina la unidad especificada de la base de datos
 	 *
 	 * @param  int  $id
 	 * @return Response

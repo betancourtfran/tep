@@ -26,7 +26,7 @@ class AdminsController extends \BaseController {
 	}
 
 	/**
-	 * Display a listing of admins
+	 * carga vista principal al ingresar con sus credenciales
 	 *
 	 * @return Response
 	 */
@@ -125,8 +125,23 @@ class AdminsController extends \BaseController {
 
 		return Redirect::route('admin.index');
 	}
+
+	/**
+	*
+	* Muestra la sección de ayuda
+	*
+	* @param string $admin
+	* @return Response
+	*/
 	public function help($admin){ return View::make('users.help', compact('admin'));}
 
+	/**
+	*
+	* Respalda la base de datos
+	*
+	* @param string $admin
+	* @return Response
+	*/
 	public function db_backup($admin)
 	{
 		if($db_backup = glob(storage_path().'/app/*.gz'))
@@ -153,6 +168,13 @@ class AdminsController extends \BaseController {
 		}
 	}
 
+	/**
+	*
+	* Restaura la base de datos
+	*
+	* @param string $admin
+	* @return Response
+	*/
 	public function db_restore($admin)
 	{
 		$backup_name;
@@ -178,6 +200,13 @@ class AdminsController extends \BaseController {
 		}
 	}
 
+	/**
+	*
+	* Crea el registro de transacciones y las muestra
+	*
+	* @param string $admin
+	* @return Response
+	*/
 	public function transactions($admin)
 	{
 		$log_route = glob(storage_path().'/logs/*.txt');
@@ -190,6 +219,14 @@ class AdminsController extends \BaseController {
 			return Redirect::route('admin.index', ['admin' => $admin]);
 		}	
 	}
+
+	/**
+	*
+	* Elimina el registro de transacciones y lo deja como nuevo
+	*
+	* @param string $admin
+	* @return Response
+	*/
 	public function delete_transactions($admin)
 	{
 		$log_route = glob(storage_path().'/logs/*.txt');

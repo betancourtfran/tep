@@ -2,18 +2,18 @@
 
 class Subject extends \Eloquent {
 
-	// Add your validation rules here
+	// Agrega las reglas de validación aquí
 	public static $rules = [
 		 'name' => 'required',
 		 'content' => 'required'
 	];
 
-	// Don't forget to fill this array
+	// Especifica los campos de la base de datos que pueden ser llenados en masa
 	protected $fillable = ['name', 'content', 'unit_id', 'video'];
+	
+	//Realiza relación con la tabla el modelo "Unit"
 	public function units(){
 		return $this->belongsTo('Unit');
 	}
-	public function comments(){
-		return $this->hasMany('Comment')->select(['body', 'user_id']);
-	}
+
 }

@@ -24,7 +24,7 @@ class UsersController extends \BaseController {
 	}
 
 	/**
-	 * Display a listing of users
+	 * Muestra una lista de los estudiantes registrados
 	 *
 	 * @return Response
 	 */
@@ -36,7 +36,7 @@ class UsersController extends \BaseController {
 	}
 
 	/**
-	 * Show the form for creating a new user
+	 * Muestra el formulario para registrar un nuevo estudiante
 	 *
 	 * @return Response
 	 */
@@ -46,7 +46,7 @@ class UsersController extends \BaseController {
 	}
 
 	/**
-	 * Store a newly created user in storage.
+	 * Guarda un nuevo estudiante en la base de datos
 	 *
 	 * @return Response
 	 */
@@ -94,7 +94,7 @@ class UsersController extends \BaseController {
 	}
 
 	/**
-	 * Display the specified user.
+	 * Muestra el estudiante especificado
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -107,7 +107,7 @@ class UsersController extends \BaseController {
 	}
 
 	/**
-	 * Show the form for editing the specified user.
+	 * Muestra formulario para editar el estudiante especificado
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -120,7 +120,7 @@ class UsersController extends \BaseController {
 	}
 
 	/**
-	 * Update the specified user in storage.
+	 * Actualiza el estudiante especificado en la base de datos
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -142,7 +142,7 @@ class UsersController extends \BaseController {
 	}
 
 	/**
-	 * Remove the specified user from storage.
+	 * ELimina el estudiante especificado de la base de datos
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -162,6 +162,13 @@ class UsersController extends \BaseController {
 
 	}
 	
+	/**
+	*
+	* Verifica los credenciales para el ingreso de los usuarios al sistema.
+	*
+	* @param string $admin
+	* @return Response
+	*/
 	public function login()
 		{
 			if (Input::get('g-recaptcha-response')){
@@ -187,6 +194,13 @@ class UsersController extends \BaseController {
 			}
 		}
 	
+	/**
+	*
+	* Realiza el cierrre de sesión de los usuarios y los envia a la pagina de ingreso
+	*
+	* @param string $admin
+	* @return Response
+	*/
 	public function logout()
 		{
 			Auth::user()->logout();

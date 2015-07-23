@@ -2,14 +2,16 @@
 
 class Unit extends \Eloquent {
 
-	// Add your validation rules here
+	// Agrega las reglas de validación aquí
 	public static $rules = [
 		'name' => 'required',
 		'content' => 'required'
 	];
 
-	// Don't forget to fill this array
+	// Especifica los campos de la base de datos que pueden ser llenados en masa
 	protected $fillable = ['name', 'content'];
+
+	//Realiza relación con la tabla el modelo "Subject"
 	public function subjects()
 	{
 		return $this->hasMany('Subject')->select(array('name', 'id'));
