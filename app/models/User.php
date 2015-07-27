@@ -30,6 +30,6 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	'last_name' => 'required',
 	'password' => 'required',
 	'email' => 'required|unique:users|email',
-	'g-recaptcha-response' => 'required|recaptcha'
+	// 'g-recaptcha-response' => 'required|recaptcha'
 	];
 }

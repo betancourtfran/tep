@@ -171,7 +171,7 @@ class UsersController extends \BaseController {
 	*/
 	public function login()
 		{
-			if (Input::get('g-recaptcha-response')){
+			// if (Input::get('g-recaptcha-response')){
 				$credentials = array(
 				'email' => Input::get('email'),
 				'password' => Input::get('password')
@@ -187,11 +187,11 @@ class UsersController extends \BaseController {
 						Session::flash('msj_fallido', 'Datos ingresados no están registrados. Por favor regístrese para acceder al contenido.');
 						return Redirect::to('/');
 					}
-			} else {
-				Session::flash('msj', 'Demuestre que usted no es un robot.');
-				Session::flash('msj_fallido', 'Demuestre que usted no es un robot.');
-				return Redirect::to('/');
-			}
+			// } else {
+			// 	Session::flash('msj', 'Demuestre que usted no es un robot.');
+			// 	Session::flash('msj_fallido', 'Demuestre que usted no es un robot.');
+			// 	return Redirect::to('/');
+			// }
 		}
 	
 	/**

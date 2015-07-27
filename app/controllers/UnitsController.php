@@ -121,10 +121,20 @@ class UnitsController extends \BaseController {
 	{
 		$unit = Unit::findOrFail($id);
 		$row = DB::table('subjects')->where('unit_id', $id)->get();
-		$subject = $row[0];
-		if(Unit::destroy($id) && Subject::destroy($subject->id)){
+		if (!empty($row)) {
+			$subject = $row[0];
+			if(Unit::destroy($id) && Subject::destroy($subject->id)){
+				$this->log_action('Unidad Eliminada', 'La Unidad "'.$unit->name.'" ha sido eliminada.');
+				Session::flash('msj', 'La unidad ha sido eliminada junto con sus objetivos exitosamente.');
+				return Redirect::route('admin.index', ['admin' => $admin]);
+			} else {
+				Session::flash('msj', 'Hubo un error y la Unidad no pudo ser eliminada.');
+				Session::flash('msj_fallido', 'Hubo un error y la Unidad no pudo ser eliminada.');
+				return Redirect::route('admin.index', ['admin' => $admin]);
+			}
+		} elseif (Unit::destroy($id)) {
 			$this->log_action('Unidad Eliminada', 'La Unidad "'.$unit->name.'" ha sido eliminada.');
-			Session::flash('msj', 'La unidad ha sido eliminada junto con sus objetivos exitosamente.');
+			Session::flash('msj', 'La unidad ha sido eliminada exitosamente.');
 			return Redirect::route('admin.index', ['admin' => $admin]);
 		} else {
 			Session::flash('msj', 'Hubo un error y la Unidad no pudo ser eliminada.');
