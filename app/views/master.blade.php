@@ -96,7 +96,7 @@
 		</div>
 	</div>
 	<script>
-		$('div.alert').delay(5000).slideUp(300);
+		$('div.alert').not('.alert-danger').delay(5000).slideUp(300);
 	</script>
 </body>
 </html>
