@@ -8,10 +8,10 @@
 	{{HTML::style('css/style.css')}}
 	{{HTML::style('jquery/jquery-ui.min.css')}}
 	{{HTML::script('ckeditor/ckeditor.js')}}
-	{{HTML::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')}}
-	{{HTML::script('https://www.google.com/recaptcha/api.js')}}
 	{{HTML::script('jquery/jquery-2.1.4.min.js')}}
 	{{HTML::script('jquery/jquery-ui.min.js')}}
+	{{HTML::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')}}
+	{{HTML::script('https://www.google.com/recaptcha/api.js')}}
 </head>
 <body>
 	<div id="wrapper">
