@@ -8,15 +8,9 @@ $baseDir = dirname($vendorDir);
 return array(
     'Symfony\\Component\\Filesystem\\' => array($vendorDir . '/symfony/filesystem'),
     'Symfony\\Component\\EventDispatcher\\' => array($vendorDir . '/symfony/event-dispatcher'),
-    'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
     'Patchwork\\' => array($vendorDir . '/patchwork/utf8/src/Patchwork'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'League\\Flysystem\\' => array($vendorDir . '/league/flysystem/src'),
-    'JmesPath\\' => array($vendorDir . '/mtdowling/jmespath.php/src'),
-    'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
-    'GuzzleHttp\\Promise\\' => array($vendorDir . '/guzzlehttp/promises/src'),
-    'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
     'BackupManager\\Laravel\\' => array($vendorDir . '/backup-manager/laravel/src'),
     'BackupManager\\' => array($vendorDir . '/backup-manager/backup-manager/src'),
-    'Aws\\' => array($vendorDir . '/aws/aws-sdk-php/src'),
 );

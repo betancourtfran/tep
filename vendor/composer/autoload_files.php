@@ -6,13 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    $vendorDir . '/guzzlehttp/promises/src/functions.php',
-    $vendorDir . '/guzzlehttp/psr7/src/functions.php',
-    $vendorDir . '/mtdowling/jmespath.php/src/JmesPath.php',
-    $vendorDir . '/guzzlehttp/guzzle/src/functions_include.php',
-    $vendorDir . '/aws/aws-sdk-php/src/functions.php',
-    $vendorDir . '/ircmaxell/password-compat/lib/password.php',
     $vendorDir . '/swiftmailer/swiftmailer/lib/swift_required.php',
+    $vendorDir . '/ircmaxell/password-compat/lib/password.php',
     $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/Random.php',
     $vendorDir . '/laravel/framework/src/Illuminate/Support/helpers.php',
 );

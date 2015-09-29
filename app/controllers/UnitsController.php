@@ -103,11 +103,11 @@ class UnitsController extends \BaseController {
 		if($unit->update($data)){
 			$this->log_action('Unidad Actualizada', 'La Unidad "'.$unit->name.'" ha sido actualizada.');
 			Session::flash('msj', 'La unidad ha sido actualizada exitosamente');
-			return Redirect::route('admin.units.index', ['admin' => $admin]);
+			return Redirect::route('admin.index', ['admin' => $admin]);
 		} else {
 			Session::flash('msj', 'Hubo un error y la Unidad no pudo ser actualizada.');
 			Session::flash('msj_fallido', 'Hubo un error y la Unidad no pudo ser actualizada.');
-			return Redirect::route('admin.units.index', ['admin' => $admin]);
+			return Redirect::route('admin.index', ['admin' => $admin]);
 		}
 	}
 

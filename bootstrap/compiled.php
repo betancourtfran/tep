@@ -8758,6 +8758,14 @@ class Logger implements LoggerInterface
         }
         return array_shift($this->handlers);
     }
+    public function setHandlers(array $handlers)
+    {
+        $this->handlers = array();
+        foreach (array_reverse($handlers) as $handler) {
+            $this->pushHandler($handler);
+        }
+        return $this;
+    }
     public function getHandlers()
     {
         return $this->handlers;
@@ -9064,22 +9072,13 @@ class StreamHandler extends AbstractProcessingHandler
     private $errorMessage;
     protected $filePermission;
     protected $useLocking;
+    private $dirCreated;
     public function __construct($stream, $level = Logger::DEBUG, $bubble = true, $filePermission = null, $useLocking = false)
     {
         parent::__construct($level, $bubble);
         if (is_resource($stream)) {
             $this->stream = $stream;
         } elseif (is_string($stream)) {
-            $dir = $this->getDirFromStream($stream);
-            if (null !== $dir && !is_dir($dir)) {
-                $this->errorMessage = null;
-                set_error_handler(array($this, 'customErrorHandler'));
-                $status = mkdir($dir, 511, true);
-                restore_error_handler();
-                if (false === $status) {
-                    throw new \UnexpectedValueException(sprintf('There is no existing directory at "%s" and its not buildable: ' . $this->errorMessage, $dir));
-                }
-            }
             $this->url = $stream;
         } else {
             throw new \InvalidArgumentException('A stream must either be a resource or a string.');
@@ -9100,6 +9099,7 @@ class StreamHandler extends AbstractProcessingHandler
             if (!$this->url) {
                 throw new \LogicException('Missing stream url, the stream can not be opened. This may be caused by a premature call to close().');
             }
+            $this->createDir();
             $this->errorMessage = null;
             set_error_handler(array($this, 'customErrorHandler'));
             $this->stream = fopen($this->url, 'a');
@@ -9134,6 +9134,23 @@ class StreamHandler extends AbstractProcessingHandler
             return dirname(substr($stream, 7));
         }
         return;
+    }
+    private function createDir()
+    {
+        if ($this->dirCreated) {
+            return;
+        }
+        $dir = $this->getDirFromStream($this->url);
+        if (null !== $dir && !is_dir($dir)) {
+            $this->errorMessage = null;
+            set_error_handler(array($this, 'customErrorHandler'));
+            $status = mkdir($dir, 511, true);
+            restore_error_handler();
+            if (false === $status) {
+                throw new \UnexpectedValueException(sprintf('There is no existing directory at "%s" and its not buildable: ' . $this->errorMessage, $dir));
+            }
+        }
+        $this->dirCreated = true;
     }
 }
 namespace Monolog\Handler;
@@ -9200,6 +9217,7 @@ class RotatingFileHandler extends StreamHandler
                 unlink($file);
             }
         }
+        $this->mustRotate = false;
     }
     protected function getTimedFilename()
     {
