@@ -14,7 +14,7 @@
 				<?php fclose($handle); ?>
 			</ul>			
 		</div>
-				<button type="button" class="btn btn-danger">{{HTML::linkAction('AdminsController@delete_transactions', 'Eliminar acciones registradas', [$admin])}}
+				<button type="button" class="btn btn-danger" onclick ="return confirm('¿Está seguro de querer eliminar el registro de acciones realizadas?');">{{HTML::linkAction('AdminsController@delete_transactions', 'Eliminar acciones registradas', [$admin])}}
 				</button>
 	@endif
 	

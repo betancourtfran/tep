@@ -71,10 +71,10 @@
 							<button type"button" class="btn btn-primary btn-lg btn-info enfasis">
 								{{HTML::linkRoute('admin.units.create', 'Crear Unidad', [$admin])}}
 							</button>
-							<button type"button" class="btn btn-primary btn-lg btn-info enfasis">
+							<button type"button" class="btn btn-primary btn-lg btn-info enfasis" onclick ="return confirm('¿Está seguro de querer respaldar la base de datos?');">
 								{{HTML::linkRoute('admin.db_backup', 'Respaldar Datos', [$admin])}}
 							</button>
-							<button type"button" class="btn btn-primary btn-lg btn-info enfasis">
+							<button type"button" class="btn btn-primary btn-lg btn-info enfasis" onclick ="return confirm('¿Está seguro de querer restaurar la base de datos?');">
 								{{HTML::linkRoute('admin.db_restore', 'Restaurar Datos', [$admin])}}
 							</button>
 							<button type"button" class="btn btn-primary btn-lg btn-info enfasis">
